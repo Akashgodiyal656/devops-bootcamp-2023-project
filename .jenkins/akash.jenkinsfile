@@ -31,10 +31,13 @@ pipeline{
     stages {
         stage("hello world"){
             steps {
-                container('aws')
-                sh '''
-                    echo "hello my name is akash"
-                '''
+                container('aws') {
+                    sh'''
+
+                        echo "Hi my name is Akash"
+
+                    '''    
+                }
             }
         }
     }
