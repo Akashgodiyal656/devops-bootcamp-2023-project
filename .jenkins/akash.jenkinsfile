@@ -3,24 +3,24 @@ pipeline{
 
     kubernetes {
         yaml '''
-        apiVersion:v1
-        kind: Pod
-        spec:
-          containers:
-            - name: aws
-              image: amazon/aws-cli
-              command:
-              - sh
-              tty: true
-              volumneMounts:
-                - name: shared-data
-                  mountPath: /mnt/shared-data
+            apiVersion: v1
+            kind: Pod
+            spec:
+              containers:
+                - name: aws
+                  image: amazon/aws-cli
+                  command:
+                  - sh
+                  tty: true
+                  volumneMounts:
+                    - name: shared-data
+                      mountPath: /mnt/shared-data
 
-            volumes:
-              - name: dind-storage
-                emptyDir: {}
-              - name: shared-data
-                emptyDir: {}
+              volumes:
+                - name: dind-storage
+                  emptyDir: {}
+                - name: shared-data
+                  emptyDir: {}
 
 
 
